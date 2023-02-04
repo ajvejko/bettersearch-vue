@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import { windowManagement } from "../stores/manageWindow";
+import WebAdd from "./WebAdd.vue";
+</script>
 
 <template>
   <div class="mx-auto flex w-1/2 justify-center">
@@ -8,10 +12,12 @@
       </div>
       <div class="flex flex-wrap justify-center">
         <button
+          @click="windowManagement.manageAdd()"
           class="mt-4 rounded-xl border-2 border-white px-2 pb-0.5 text-white shadow-[0_0px_5px_rgba(0,0,0,0.25)] active:shadow-white"
         >
           +
         </button>
+        <WebAdd v-if="windowManagement.addWindow" />
       </div>
     </div>
   </div>

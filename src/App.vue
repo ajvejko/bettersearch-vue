@@ -1,7 +1,6 @@
 <script setup>
 import SearchBar from "./components/SearchBar.vue";
 import WebTable from "./components/WebTable.vue";
-import WebAdd from "./components/WebAdd.vue";
 </script>
 
 <template>
