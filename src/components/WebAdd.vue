@@ -1,5 +1,25 @@
 <script setup>
+import { ref } from "vue";
 import { windowManagement } from "../stores/manageWindow";
+import { buttonManagement } from "../stores/manageButton";
+
+//creating reactive states for values from input
+const name = ref("");
+const home = ref("");
+const search = ref("");
+
+//Function that adds a button
+const addButton = () => {
+  //First adds the new link to the list
+  buttonManagement.list.push({
+    name: name.value,
+    home: home.value,
+    search: search.value,
+  });
+  //then sets it into the localStorage
+  localStorage.setItem("links", JSON.stringify(buttonManagement.list));
+  windowManagement.manageAdd();
+};
 </script>
 <template>
   <div
@@ -18,6 +38,7 @@ import { windowManagement } from "../stores/manageWindow";
       <div class="float-left mt-5 font-bebas text-2xl text-white">Name:</div>
       <input
         type="text"
+        v-model="name"
         placeholder="Name of the button"
         class="w-full rounded-md border-2 bg-neutral-800 px-2 py-1 text-white outline-none focus:shadow-[0_0px_11px_rgba(0,0,0,0.25)]"
       />
@@ -26,6 +47,7 @@ import { windowManagement } from "../stores/manageWindow";
       </div>
       <input
         type="text"
+        v-model="home"
         placeholder="Link to home page"
         class="w-full rounded-md border-2 bg-neutral-800 px-2 py-1 text-white outline-none focus:shadow-[0_0px_11px_rgba(0,0,0,0.25)] focus:shadow-blue-500"
       />
@@ -34,10 +56,12 @@ import { windowManagement } from "../stores/manageWindow";
       </div>
       <input
         type="text"
+        v-model="search"
         placeholder="Link for searching"
         class="w-full rounded-md border-2 bg-neutral-800 px-2 py-1 text-white outline-none focus:shadow-[0_0px_11px_rgba(0,0,0,0.25)] focus:shadow-blue-500"
       />
       <button
+        @click="addButton"
         class="mt-4 rounded-md border-2 py-1 px-2 text-white shadow-[0_0px_8px_rgba(0,0,0,0.25)]"
       >
         Add

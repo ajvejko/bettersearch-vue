@@ -1,6 +1,13 @@
 <script setup>
+import { onMounted } from "vue";
+import { buttonManagement } from "./stores/manageButton";
 import SearchBar from "./components/SearchBar.vue";
 import WebTable from "./components/WebTable.vue";
+
+//Everytime site loads, sets the list value from localStorage
+onMounted(() => {
+  buttonManagement.list = JSON.parse(localStorage.getItem("links") || "[]");
+});
 </script>
 
 <template>
