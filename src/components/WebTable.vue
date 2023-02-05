@@ -2,6 +2,7 @@
 import { buttonManagement } from "../stores/manageButton";
 import { windowManagement } from "../stores/manageWindow";
 import WebAdd from "./WebAdd.vue";
+import WebEdit from "./WebEdit.vue";
 import WebButton from "./WebButton.vue";
 </script>
 
@@ -15,6 +16,7 @@ import WebButton from "./WebButton.vue";
         <!-- For each link in the list creates a button with all the properties -->
         <WebButton
           v-for="(link, index) in buttonManagement.list"
+          @edit="windowManagement.manageEdit(link.name, link.home, link.search)"
           @toggle="
             buttonManagement.toggleButton(link.name, link.home, link.search)
           "
@@ -28,6 +30,7 @@ import WebButton from "./WebButton.vue";
           +
         </button>
         <WebAdd v-if="windowManagement.addWindow" />
+        <WebEdit v-if="windowManagement.editWindow" />
       </div>
     </div>
   </div>
