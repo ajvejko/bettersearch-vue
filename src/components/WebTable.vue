@@ -1,5 +1,4 @@
 <script setup>
-import { computed, onMounted } from "vue";
 import { buttonManagement } from "../stores/manageButton";
 import { windowManagement } from "../stores/manageWindow";
 import WebAdd from "./WebAdd.vue";
