@@ -15,9 +15,10 @@ import WebButton from "./WebButton.vue";
         <!-- For each link in the list creates a button with all the properties -->
         <WebButton
           v-for="(link, index) in buttonManagement.list"
+          @toggle="
+            buttonManagement.toggleButton(link.name, link.home, link.search)
+          "
           :name="link.name"
-          :home="link.home"
-          :search="link.search"
           :key="index"
         />
         <button
