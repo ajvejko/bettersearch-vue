@@ -24,7 +24,7 @@ export const buttonManagement = reactive({
     //Remove the links
     this.list.splice(index, 1);
     //Update local storage
-    localStorage.setItem("link", JSON.stringify(this.list));
+    localStorage.setItem("links", JSON.stringify(this.list));
     windowManagement.manageEdit();
   },
   //Function that edits the buttons properties
