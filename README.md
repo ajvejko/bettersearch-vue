@@ -1,4 +1,4 @@
-# bettersearch-react
+# bettersearch-vue
 
 This project is a personal learning project where I experiment with new technologies such as React and Tailwind. <br/>
 The goal of BetterSearch is to provide a faster and more efficient way to search the web by allowing users to set custom shortcuts for their favorite websites.
